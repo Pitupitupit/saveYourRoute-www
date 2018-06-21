@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include materialHeadSection %>
+  </head>
+  <body>
+		<% include navbar %>
+		<div class="containter" style="background-color:#DCDCDC;">
+			<div class="jumbotron" style="padding-bottom:10px;">
+			<% include messages %>
+				<h1 class="display-3">Save Your Route</h1>
+				<p class="lead">Welcome to  <b><span style="color:#00695c;">Save Your Route</span></b>! Place where you can manage your routes and locations.</p>
+				<hr class="my-4">
+				<p>Download the app for Android devices and start having fun with registering and sharing your trips.</p>
+				<p class="lead">
+					<a class="btn btn-outline-primary btn-lg" href="/download" role="button">Download</a>
+				</p>
+			</div>
+			
+			<div class="row" style="margin:0px;">
+				
+				
+				<div class="col-lg-4 col-xs-12" style="margin-bottom: 40px;">
+				
+					<div class="card" style="padding: 20px;">
+						<div class="card-body">
+							<h4 class="card-title text-primary" >So far our users:</h4>
+							
+							<ul class="list-group">
+								<a class="list-group-item">
+									<i class="material-icons">accessibility</i>
+									registered &nbsp <b><%= general.USERS %></b> &nbsp accounts
+								</a>
+								
+								<a class="list-group-item">
+									<i class="material-icons">gesture</i> 
+									recorded &nbsp <b><%= general.ROUTES %></b> &nbsp routes...
+								</a>
+								
+								<a class="list-group-item">
+									<i class="material-icons">gps_fixed</i>
+									...with &nbsp <b><%= general.ROUTESPOINTS %></b> &nbsp points!
+								</a>
+								
+								<a class="list-group-item">
+									<i class="material-icons">room</i>
+									saved &nbsp <b><%= general.LOCATIONS %></b> &nbsp locations!
+								</a>
+							
+							</ul>
+							For more details see <a href='/generalDets'>this page</a>.
+						</div>
+					</div><!--card -->
+					
+				</div>
+				<div class="col-lg-8">
+				</div>
+
+			</div>
+		</div>
+		
+		
+		
+		
+		<% include materialBodyCloseSection %>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html style="height:100%; margin:0;">
+	<head>
+		<title>SaveYourRoute: Your locations</title>
+		<% include materialHeadSection %>
+	</head>
+	<body style="height:100%;">
+		<% include navbar %>
+		<% include messages %>
+		
+		<div class="container-fluid" style="height: calc(100% - 60px); margin:0px; padding:0px; background-color:#DCDCDC">
+		<% for(i=0; i<locations.length; i++) { %>
+			
+			<% if(i%3 == 0) { %>
+				<div class="row" style="width: 100%; margin:0px; background-color:#DCDCDC">
+			<% } %>
+			
+				<div class="col-lg-4">
+					<div class="card" style="padding: 10px; width: 100%; margin-top: 15px; margin-bottom:15px;">
+					
+						<form method="post" style="margin:0px;>
+							<input name="locationRef" type="hidden" value="<%= locations[i].REF %>">
+<% console.log("the value of event.name hidden field", locations[i].REF) %>
+							<button type="submit" title="Delete this location" class="close" style="color:red;" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</form>
+						
+						<h4 class="card-title" style="margin-bottom:0px;" ><center><a href="<%= links[i] %>"><%= locations[i].NAME %></a></center></h4>
+						<p style="margin-top: 0px;"><center> <%= locations[i].TIMEADD %></center></p>
+						<div class="card-body" style="margin-top:0px; padding-top:0px;">
+							<div id="map<%= i %>" style="height: 400px; width: 100%;">miejsce na mapę</div>
+						</div>
+					</div>	
+
+				</div>
+			
+			<% if(i%3 == 2 || i==locations.lenght-1) { %>
+				</div> <!--zamknięcie row -->
+			<% } %>
+			
+		<% } %>
+			
+			
+		</div>
+		
+<script>
+
+function initMap() {
+
+
+	var locs = <%- JSON.stringify(locations) %>;
+	
+	locs.forEach(function(loc, index) {
+		var X = { lat: loc.LATITUDE, lng: loc.LONGITUDE };
+		
+		var map = new google.maps.Map(document.getElementById('map'+index), {
+			zoom: 10,
+			center: X
+		});
+		
+		var marker = new google.maps.Marker({
+			position: X,
+			map: map
+		});
+		
+	});
+	
+}
+
+</script>
+
+
+
+
+
+
+
+		
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX1cSyWbNmSWSw60DcVT8HDhnmFVfOowU&callback=initMap" async defer></script>
+		<% include materialBodyCloseSection %>
+		
+	</body>
+</html>

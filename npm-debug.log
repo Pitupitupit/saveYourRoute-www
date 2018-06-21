@@ -1,0 +1,23 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'start' ]
+2 info using npm@1.4.21
+3 info using node@v4.8.2
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart SaveYourRoute@0.0.14
+6 info start SaveYourRoute@0.0.14
+7 verbose unsafe-perm in lifecycle true
+8 error Error: write EPIPE
+8 error     at exports._errnoException (util.js:907:11)
+8 error     at WriteWrap.afterWrite (net.js:790:14)
+9 error If you need help, you may report this *entire* log,
+9 error including the npm and node versions, at:
+9 error     <http://github.com/npm/npm/issues>
+10 error System Linux 4.9.59-v7+
+11 error command "/usr/bin/nodejs" "/usr/bin/npm" "start"
+12 error cwd /home/pi/aplikacja internetowa
+13 error node -v v4.8.2
+14 error npm -v 1.4.21
+15 error syscall write
+16 error code EPIPE
+17 error errno EPIPE
+18 verbose exit [ 1, true ]

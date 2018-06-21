@@ -1,0 +1,212 @@
+<script>
+var map;
+
+var routeObj = <%- JSON.stringify(route) %>;
+console.log(routeObj.length);
+console.log(JSON.stringify(routeObj));
+function initMap() {
+
+	map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 15
+	});
+
+		var square = '../images/square.png';
+		
+		var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+
+
+	
+		var start = { lat: routeObj[0].LATITUDE, lng: routeObj[0].LONGITUDE };
+	  var markerStart = new google.maps.Marker({
+			animation: google.maps.Animation.DROP,
+			position: start,
+			label: 'B',
+			map: map
+		});
+		
+		var stop = {lat: routeObj[routeObj.length-1].LATITUDE , lng: routeObj[routeObj.length-1].LONGITUDE };
+	  var markerStop = new google.maps.Marker({
+			animation: google.maps.Animation.DROP,
+			position: stop,
+			label: 'F',
+			map: map
+		});
+		
+		var infowindowStart = new google.maps.InfoWindow({
+			content: 'Beginning point'
+		});
+		
+		var infowindowStop = new google.maps.InfoWindow({
+			content: 'Final point'
+		});
+		
+		markerStart.addListener('click', function() {
+			infowindowStart.open(map, markerStart);
+		});
+		
+		markerStop.addListener('click', function() {
+			infowindowStop.open(map, markerStop);
+		});
+	
+	
+  var points = [];
+  var bounds = new google.maps.LatLngBounds();
+	
+	if(<%= animate %> == false)
+	{
+	
+		
+		
+		routeObj.forEach(function(element,index){
+			
+				//console.log(index);
+				var lon = element.LONGITUDE;
+				var lat = element.LATITUDE;
+				var p = new google.maps.LatLng(lat, lon);
+				if(index %20 == 0)
+				{
+					var markerTemp = new google.maps.Marker({
+						animation: google.maps.Animation.DROP,
+						position: p,
+						map: map,
+						icon: square
+					});
+				}
+				points.push(p);
+				bounds.extend(p);
+
+				
+
+		});
+		
+		var poly = new google.maps.Polyline({
+		// use your own style here
+			path: points,
+			strokeColor: "#66ff66",
+			strokeOpacity: 0.8,
+			strokeWeight: 7
+		});
+				
+		poly.setMap(map);
+		// fit bounds to track
+		map.fitBounds(bounds);
+	}	
+	else
+	{
+		if(<%= followPoint %> == true)
+		{
+		
+			//animacja - podążaj za punktem
+			routeObj.forEach(function(element,index){
+				setTimeout(function(){
+					//console.log(index);
+					var lon = element.LONGITUDE;
+					var lat = element.LATITUDE;
+					var p = new google.maps.LatLng(lat, lon);
+					points.push(p);
+					map.setCenter(p);
+					
+					var poly = new google.maps.Polyline({
+						// use your own style here
+						path: points,
+						strokeColor: "#66ff66",
+						strokeOpacity: .5,
+						strokeWeight: 7
+					});
+					
+					if(index %20 == 0)
+					{
+						var markerTemp = new google.maps.Marker({
+							animation: google.maps.Animation.DROP,
+							position: p,
+							map: map,
+							icon: square
+						});
+					}
+					
+					poly.setMap(map);
+				
+				},index*100);
+		
+			});
+		
+		var start = { lat: routeObj[0].LATITUDE, lng: routeObj[0].LONGITUDE };
+	  var markerStart = new google.maps.Marker({
+			animation: google.maps.Animation.DROP,
+			position: start,
+			label: 'B',
+			map: map
+		});
+		
+		/*var stop = {lat: routeObj[routeObj.length-1].LATITUDE , lng: routeObj[routeObj.length-1].LONGITUDE };
+	  var markerStop = new google.maps.Marker({
+			animation: google.maps.Animation.DROP,
+			position: stop,
+			label: 'F',
+			map: map
+		});
+		
+		var infowindowStart = new google.maps.InfoWindow({
+			content: 'Beginning point'
+		});
+		
+		var infowindowStop = new google.maps.InfoWindow({
+			content: 'Final point'
+		});
+		
+		markerStart.addListener('click', function() {
+			infowindowStart.open(map, markerStart);
+		});
+		
+		markerStop.addListener('click', function() {
+			infowindowStop.open(map, markerStop);
+		});
+		
+		
+		
+		poly.setMap(map);*/
+		
+		}
+		else
+		{
+			//animacja - nie podążaj za punktem
+			routeObj.forEach(function(element,index){
+				setTimeout(function(){
+					console.log(index);
+					var lon = element.LONGITUDE;
+					var lat = element.LATITUDE;
+					var p = new google.maps.LatLng(lat, lon);
+					points.push(p);
+					bounds.extend(p);
+					
+					var poly = new google.maps.Polyline({
+						// use your own style here
+						path: points,
+						strokeColor: "#66ff66",
+						strokeOpacity: .5,
+						strokeWeight: 7
+					});
+										
+					if(index %20 == 0)
+					{
+						var markerTemp = new google.maps.Marker({
+							animation: google.maps.Animation.DROP,
+							position: p,
+							map: map,
+							icon: square
+						});
+					}
+					
+					poly.setMap(map);
+												// fit bounds to track
+					map.fitBounds(bounds);
+
+				
+				},index*100);
+			});
+		}
+	}
+  
+  
+}
+</script>

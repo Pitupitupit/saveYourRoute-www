@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+	<head>
+		<title>SaveYourRoute: Searching results</title>
+		<% include materialHeadSection %>
+	</head>
+	<body style="height:100%;">
+		<% include navbar %>
+		
+		<div class="container-fluid" style="background-color:#DCDCDC; height: calc(100% - 60px);">
+			<div class="row" style="background-color:#DCDCDC;">
+				<div class="col-lg-4 col-xs-1">
+				</div>
+				<div class="col-lg-4">
+					<div class="card" style="padding: 20px; margin-top: 50px; margin-bottom:50px;">
+						<div class="card-body">
+							<% include messages %>
+							<h4 class="card-title text-primary" style="margin-top: 20px;"><center><%= cardTitle %></center></h4>
+							<% if (locals.links) { %>
+								<table class="table table-hover" style="margin-top: 20px;">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Title</th>
+										<th>Username</th>
+									</tr>
+								</thead>
+								<tbody>
+								<% links.forEach(function(l, index) { %>
+									<tr>
+										<td><%= index+1 %></td>
+										<td><a href='<%= l.link %>'><%= l.title %></a></td>
+										<td><%= l.owner %></td>
+										<% if(typeof user != "undefined" && user.REF == l.ownerRef) { %>
+											<td><form method="post" action="/deleteRoute">
+														<input name="routeRef" type="hidden" value="<%= l.routeRef %>">
+														<button type="submit" title="Delete this route" class="close" style="color:red;" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</form>
+											</td>
+										<% } %>
+										
+									</tr>
+								<% }) %>
+								</tbody>
+								</table>
+							<% } else {%>
+								No routes
+							<% } %>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-xs-1">
+				</div>
+			</div>
+		
+		</div>
+	
+		<% include materialBodyCloseSection %>
+	</body>
+</html>
+
+		
+		
+		
+		

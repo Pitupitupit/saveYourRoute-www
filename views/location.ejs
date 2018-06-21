@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html style="height:100%">
+	<head>
+		<title>SaveYourRoute: Location</title>
+		<% include materialHeadSection %>
+	</head>
+	<body style="height:100%">
+		<% include navbar %>
+		<% include drawLocation %>
+		
+		<div class="container-fluid" style="height: calc(100% - 60px); margin:0px; padding:0px;">
+		
+			<div id="map" style="height: 100%; width: 100%;">miejsce na mapę</div>
+			
+		</div>
+		
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX1cSyWbNmSWSw60DcVT8HDhnmFVfOowU&callback=initMap" async defer></script>
+		<% include materialBodyCloseSection %>
+		
+	</body>
+</html>

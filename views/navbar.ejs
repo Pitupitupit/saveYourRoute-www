@@ -1,0 +1,80 @@
+<!--<nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">Hidden brand</a>
+        <ul class="navbar-nav mr-auto mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>-->
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-faded" style="height:45px;">-->
+<nav class="navbar navbar-expand-lg navbar-light" style="min-height:45px;">
+
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+ </button>
+	<a class="navbar-brand " href="/"  >SaveYourRoute</a>
+	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+	<% if(locals.user) { %>
+
+		<ul class="nav navbar-nav mr-auto mt-lg-0">
+		
+			<li class="nav-item active">
+				<a class="nav-link" href="/editAccount"><i class="material-icons small">accessibility</i> <%= user.LOGIN %><span class="sr-only">(current)</span></a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/yourRoutes"><i class="material-icons small">gesture</i> Your routes</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/yourLocations"><i class="material-icons small">gps_fixed</i> Your locations</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/search"><i class="material-icons small">search</i> Search</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/logout"><i class="material-icons small">directions_run</i> Logout</a>
+			</li>
+
+		</ul>
+	
+	
+		</div>
+		
+	<% } else { %>
+	
+		<ul class="nav navbar-nav mr-auto mt-lg-0">
+		
+			<li class="nav-item">
+				<a class="nav-link" href="/login"><i class="material-icons small">person</i> Login</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/register"><i class="material-icons small">person_add</i> Register</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/search"><i class="material-icons small">search</i> Search</a>
+			</li>
+
+		</ul>
+	
+	<% } %>
+	</div>
+</nav>

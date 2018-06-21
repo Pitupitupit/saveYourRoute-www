@@ -1,0 +1,29 @@
+<script>
+
+function initMap() {
+
+	var X = {lat: <%= loc.LATITUDE %>, lng: <%= loc.LONGITUDE %>};
+	//var X = {lat: 50.0, lng: 50.0};
+	var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: X
+  });
+	
+	var infowindow = new google.maps.InfoWindow({
+		content: '<%= loc.NAME %>'
+  });
+	 
+  var marker = new google.maps.Marker({
+		animation: google.maps.Animation.DROP,
+    position: X,
+    map: map
+  });
+	
+  marker.addListener('click', function() {
+  	infowindow.open(map, marker);
+  });
+
+}
+
+</script>
+

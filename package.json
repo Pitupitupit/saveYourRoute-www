@@ -1,0 +1,19 @@
+{
+  "name": "SaveYourRoute",
+  "version": "0.0.14",
+  "private": true,
+  "scripts": {
+    "start": "nodejs ./bin/www"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "ejs": "~0.8.5",
+    "express": "~4.0.0",
+    "morgan": "~1.0.0",
+    "node-firebird": "^0.8.2",
+    "static-favicon": "~1.0.0"
+  }
+}

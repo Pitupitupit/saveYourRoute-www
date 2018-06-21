@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html style="height:100%;">
+	<head>
+		<title>SaveYourRoute: Register</title>
+		<% include materialHeadSection %>
+	</head>
+	<body style="height:100%;">
+		<% include navbar %>
+		
+		<div class="container-fluid" style="height: calc(100% - 60px); background-color:#DCDCDC;">
+			<div class="row">
+				<div class="col-lg-4 col-xs-1">
+				
+				</div>
+				
+				<div class="col-lg-4 col-xs-10" style="background-color:#DCDCDC;">
+					<div class="row">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8">
+							<div class="card" style="padding: 20px; margin-top: 50px;  margin-bottom: 50px;">
+								<div class="card-body">
+								
+									<h4 class="card-title text-primary" style="margin-top: 20px;"><center>Register</center></h4>
+									<% include messages %>
+									
+									<form action='/register' method='post'>
+										<div class="form-group">
+											Username
+											<input id="inputUsername" type="text" name="user[name]" class="form-control" placeholder="Enter your username" autofocus>
+											<small id="userHelp" class="form-text text-muted">You will use your username to login</small>
+										</div>
+										<div class="form-group">
+											Password
+											<input id="inputPassword" type="password" name="user[pass]" class="form-control" placeholder="Enter your password">
+											<small id="passwordHelp" class="form-text text-muted">Remember it well! There is no possibility to recover your password</small>
+										</div>
+										
+										<center><button type="submit" class="btn btn-outline-primary" style="margin-top: 20px;">Submit!</button></center>
+
+									</form>
+							
+							
+								</div>
+
+							</div>
+						</div>	
+						<div class="col-lg-2"></div>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-xs-1">
+							
+				</div>
+			
+			</div>
+		
+		</div>
+	
+		<% include materialBodyCloseSection %>
+	</body>
+
+		
+		
+		
+		

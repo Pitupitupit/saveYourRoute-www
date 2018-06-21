@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html style="height:100%">
+	<head>
+		<title>SaveYourRoute: Edit route</title>
+		<% include materialHeadSection %>
+	</head>
+	<body style="height:100%">
+		<% include navbar %>
+		
+		<div class="container-fluid" style="height: calc(100% - 60px); background-color:#DCDCDC;">
+			<div class="row" style="background-color:#DCDCDC;">
+				<div class="col-lg-4 col-xs-1">
+				
+				</div>
+				
+				<div class="col-lg-4 col-xs-10">
+					
+								<div class="card" style="padding: 20px; margin-top: 50px; margin-bottom:50px;">
+									<div class="card-body">
+									
+										<h4 class="card-title text-primary" style="margin-top: 20px;"><center>Edit route</center></h4>
+										<% include messages %>
+										
+										<form method='post'>
+											<div class="form-group">
+												Title
+												<input type="text" name="editRouteInfo[title]" class="form-control" value="<%= routeInfo.TITLE %>">
+											</div>
+											<div class="form-group">
+												Description
+												<textarea name="editRouteInfo[description]" class="span6" rows="4" style="width:100%;"><%= routeInfo.DESCRIPTION %></textarea>
+											</div>
+											<div class="form-group">
+												<select name="editRouteInfo[private]" class="custom-select mb-2 mr-sm-2 mb-sm-0" onchange="allowChoosingSatellites(this)">
+													<% if( routeInfo.PRIVATE == 1) { %>
+														<option value="1">Private</option>
+														<option value="0">Public</option>
+													<% } else  { %>
+														<option value="0">Public</option>
+														<option value="1">Private</option>
+													<% } %>
+												</select>
+											</div>
+											<center><button type="submit" class="btn btn-outline-primary" style="margin-top: 20px;">Submit!</button></center>
+
+										</form>
+								
+								
+									</div>
+
+								</div>
+
+				</div>
+				
+				<div class="col-lg-4 col-xs-1">
+							
+				</div>
+			
+			</div>
+		
+		</div>
+	
+		<% include materialBodyCloseSection %>
+		
+	</body>
+</html>
+

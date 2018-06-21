@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+	<head>
+		<title>SaveYourRoute: Register</title>
+		<% include materialHeadSection %>
+	</head>
+	<body style="height:100%;">
+		<% include navbar %>
+		
+		<div class="container-fluid" style="background-color:#DCDCDC; height: calc(100% - 60px);">
+			<div class="row" style="background-color:#DCDCDC;">
+				<div class="col-lg-2">
+				
+				</div>
+				
+				<div class="col-lg-8 col-xs-12">
+					
+							<div class="card" style="padding: 20px; margin-top: 50px;  margin-bottom: 50px;">
+								<div class="card-body">
+								
+									<h4 class="card-title text-primary" style="margin-top: 20px;"><center>Overall information (date cases)</center></h4>
+									
+								<table class="table table-responsive table-hover" style="margin-top: 20px;">
+								<thead>
+									<tr>
+										<th>Date</th>
+										<th>Registered users</th>
+										<th>Recorded routes</th>
+										<th>Amount of points</th>
+										<th>Saved locations</th>
+									</tr>
+								</thead>
+								<tbody>
+								<% general.forEach(function(g, index) { %>
+									<tr>
+										<td><%= g.DATEOF %></td>
+										<td><%= g.USERS %></td>
+										<td><%= g.ROUTES %></td>
+										<td><%= g.ROUTESPOINTS %></td>
+										<td><%= g.LOCATIONS %></td>									
+									</tr>
+								<% }) %>
+								</tbody>
+								</table>
+									
+								</div>
+
+							</div>
+
+				</div>
+				
+				<div class="col-lg-2">
+							
+				</div>
+			
+			</div>
+		
+		</div>
+	
+		<% include materialBodyCloseSection %>
+	</body>
+
+		
+		
+		
+		

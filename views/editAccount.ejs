@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+  <head>
+		<title>SaveYourRoute: edit your account</title>
+    <% include materialHeadSection %>
+  </head>
+  <body style="height:100%;">
+		<% include navbar %>
+		
+		<div class="container-fluid" style="height: calc(100% - 60px); background-color:#DCDCDC;">
+			<div class="row" style="background-color:#DCDCDC;">
+				<div class="col-lg-4 col-xs-1">
+				</div>
+				<div class="col-lg-4">
+					<div class="card" style="padding: 20px; margin-top: 50px; margin-bottom: 50px;">
+						<div class="card-body">
+							<h4 class="card-title text-primary" style="margin-top: 20px;"><center>Edit your account</center></h4>
+							<% include messages %>
+								<form method='post'>
+									<div class="form-group">
+										Username
+										<input id="inputUsername" type="text" name="userEdit[name]" class="form-control" value="<%= user.LOGIN %>">
+									</div>
+									<div class="form-group">
+										Password
+										<input id="inputPassword" type="password" name="userEdit[pass]" class="form-control" placeholder="Enter new or existing password">
+									</div>
+									<div class="form-group">
+										Account created:
+										<input id="inputPassword" type="text"  class="form-control" value="<%= user.TIMEADD %>" disabled>
+									</div>
+											
+									<center><button type="submit" class="btn btn-outline-primary" style="margin-top: 20px;">Submit!</button></center>
+
+								</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-xs-1">
+				</div>
+			</div>
+		
+		</div>
+		
+		<% include materialBodyCloseSection %>
+  </body>
+</html>

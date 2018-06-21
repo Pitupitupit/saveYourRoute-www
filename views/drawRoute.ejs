@@ -1,0 +1,39 @@
+<script>
+var map;
+console.log(<%- route[0].lats[0] %>);
+console.log('kek6');
+var routeObj = <%- JSON.stringify(route) %>;
+console.log(routeObj[0].lats[0]);
+function initMap() {
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15
+  });
+
+  var points = [];
+  var bounds = new google.maps.LatLngBounds();
+	
+  routeObj.forEach(function(element, index){
+		for(var i=0; i<element.lats.length; i++)
+		{
+			var lon = element.longs[i];
+			var lat = element.lats[i];
+			var p = new google.maps.LatLng(lat, lon);
+			points.push(p);
+      bounds.extend(p);
+		}
+	});
+        
+  var poly = new google.maps.Polyline({
+    // use your own style here
+    path: points,
+    strokeColor: "#FF00AA",
+    strokeOpacity: .7,
+    trokeWeight: 4
+  });
+  poly.setMap(map);
+                // fit bounds to track
+  map.fitBounds(bounds);
+}
+
+</script>

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>SaveYourRoute: Routes</title>
+		<% include materialHeadSection %>
+	</head>
+	<body>
+		<% include navbar %>
+		<div class="container-fluid" style="background-color:#DCDCDC;">
+			<div class="row">
+				<div class="col-lg-4 col-xs-1">
+				
+				</div>
+				
+				<div class="col-lg-4 col-xs-10">
+					<div class="row">
+						<div class="col-lg-1"></div>
+						<div class="col-lg-10">
+							<div class="card" style="padding: 20px; margin-top: 50px; margin-bottom: 50px;">
+								<div class="card-body">
+								
+									<h4 class="card-title text-primary" style="margin-top: 20px;"><center>Search a route</center></h4>
+									<% include messages %>
+									
+									<form action='/search' method='post'>
+										<div class="form-group">
+											Title
+											<input type="text" name="parameters[title]" class="form-control" placeholder="Enter a title">
+											<small id="userHelp" class="form-text text-muted">Search by a title of a route</small>
+										</div>
+										<div class="form-group">
+											Username
+											<input type="text" name="parameters[user]" class="form-control" placeholder="Enter an username">
+											<small id="passwordHelp" class="form-text text-muted">Search by an owner of a route or leave it empty to filter by all users (including guests)</small>
+										</div>
+										<div class="form-group">
+											Date earlier than
+											<input type="text" name="parameters[dataod]" class="form-control" placeholder="Format: DD.MM.YYYY">
+											<small id="userHelp" class="form-text text-muted">Example: 25.10.2017</small>
+										</div>
+										<div class="form-group">
+											Date older than
+											<input type="text" name="parameters[datado]" class="form-control" placeholder="Format: DD.MM.YYYY">
+											<small id="userHelp" class="form-text text-muted">Example: 30.10.2017</small>
+										</div>
+										
+										<center><button type="submit" class="btn btn-outline-primary" style="margin-top: 20px;">Search!</button></center>
+
+									</form>
+							
+							
+								</div>
+
+							</div>
+						</div>	
+						<div class="col-lg-1"></div>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-xs-1">
+							
+				</div>
+			
+			</div>
+		
+		</div>
+	
+		<% include materialBodyCloseSection %>
+	</body>
+</html>
